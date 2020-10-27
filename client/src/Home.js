@@ -24,8 +24,10 @@ class Home extends React.Component {
 
     }
 
+   
+    
     download = () => {
-        var canvas = document.getElementById("myCanvas")
+        var canvas = document.getElementById("mainDiv")
         //console.log(canvas)
         console.log(typeof (canvas))
         var opt = {
@@ -33,13 +35,13 @@ class Home extends React.Component {
            
             filename: 'myfile.pdf',
             enableLinks: true,
-            html2canvas: { scale: 3 },
+            html2canvas: { scale: 2 },
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
-        html2pdf().from(canvas).set(opt).save();
+        html2pdf().from(canvas).set(opt).save()
         
 
-    }
+     }
 
 
     findxy = (res, e) => {
@@ -174,7 +176,7 @@ class Home extends React.Component {
 
                 </div>
 
-                <div> <canvas id="myCanvas" width="400" height="400" ></canvas> </div>
+                <div id="mainDiv"> <canvas id="myCanvas" width="400" height="400" ></canvas> </div>
                 <button id="btn" onClick={() => this.download()}>Download the PDF</button>
                 <input type="button" value="clear" id="clr" size="23" onClick={()=>this.erase()}></input>
 
